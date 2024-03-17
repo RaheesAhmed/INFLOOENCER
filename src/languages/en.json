@@ -1,0 +1,37 @@
+{
+    "Login": {
+        "heading": "Login Your Account",
+        "username": "Username",
+        "password": "Password",
+        "forgotPassword": "Forgot Password?",
+        "resetNow": "Reset Now",
+        "login": "Login",
+        "dontHaveAccount": "Don't have an account?",
+        "signupNow": "Sign Up Now"
+    },
+    "Register": {
+        "heading": "Register Your Account",
+        "fullName": "Full Name",
+        "username": "Username",
+        "emailAddress": "Email Address",
+        "contactNumber": "Contact Number",
+        "password": "Password",
+        "registerNow": "Register Now",
+        "alreadyHaveAccount": "Already have an account?",
+        "signInNow": "Sign In Now"
+    },
+    "OTP": {
+        "heading": "OTP Confirmation",
+        "enterOTPCode": "Enter OTP Code",
+        "authenticate": "Authenticate",
+        "didntRecieveOTP": "Didn't receive OTP?",
+        "resendNow": "Resend Now"
+    },
+    "ForgotPassword": {
+        "heading": "Forgot Password",
+        "enterEmailAddress": "Enter Email Address",
+        "authenticate": "Authenticate",
+        "didntRecieveOTP": "Didn't receive OTP?",
+        "resendNow": "Resend Now"
+    }
+}

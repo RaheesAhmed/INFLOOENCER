@@ -1,13 +1,57 @@
+import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import FlashMessage from 'react-native-flash-message';
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
+import en from './src/languages/en.json';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
+//======== SCREENS =========
+import Login from './src/screens/Login';
+
+//======== NAVIGATORS =========
+const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
+
+//======== TAB NAVIGATOR =========
+const TabNavigator = () => {};
+
+//======== STACK NAVIGATOR =========
+const MyStackNavigator = () => {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen name="Login" component={Login} />
+    </Stack.Navigator>
+  );
+};
+
+const Wrapper = () => {
+  return (
+    <NavigationContainer>
+      <FlashMessage position="top" icon="auto" duration={2000} style={{ zIndex: 9999 }} floating />
+      <MyStackNavigator />
+    </NavigationContainer>
+  );
+};
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  i18n.use(initReactI18next).init({
+    compatibilityJSON: 'v3',
+    resources: {
+      en: {
+        translation: en,
+      },
+    },
+    lng: 'en', // language to use, more information here: https://www.i18next.com/overview/configuration-options#languages-namespaces-resources
+    interpolation: {
+      escapeValue: false, // react already safes from xss
+    },
+  });
+
+  return <Wrapper />;
 }
 
 const styles = StyleSheet.create({

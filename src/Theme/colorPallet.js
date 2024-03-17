@@ -1,0 +1,33 @@
+export const dark = {
+  background: '#ffffff',
+  primary: '#E09E00',
+  lightPrimary: '#E09E0026',
+  secondary: '#1C2021',
+  normalText: '#263238',
+  lightText: '#42526E',
+  smallText: '#42526EB2',
+  lightHeading: '#414C51',
+  bottomNav: '#00000094',
+  greishBackground: '#F2F2F2',
+  lightBoder: '#DADADA',
+  yellowishGrey: '#EDE5D1',
+  white: '#ffffff',
+  red: '#C41012',
+};
+
+export const light = {
+  background: '#ffffff',
+  primary: '#E09E00',
+  lightPrimary: '#E09E0026',
+  secondary: '#1C2021',
+  normalText: '#263238',
+  lightText: '#42526E',
+  smallText: '#42526EB2',
+  lightHeading: '#414C51',
+  bottomNav: '#00000094',
+  greishBackground: '#F2F2F2',
+  lightBoder: '#DADADA',
+  yellowishGrey: '#EDE5D1',
+  white: '#ffffff',
+  red: '#C41012',
+};
