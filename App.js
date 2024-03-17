@@ -12,6 +12,9 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 //======== SCREENS =========
 import Login from './src/screens/Login';
 import { ThemeProvider } from './src/Theme/ThemeContext';
+import Register from './src/screens/Register';
+import ForgotPassword from './src/screens/ForgotPassword';
+import OTP from './src/screens/OTP';
 
 //======== NAVIGATORS =========
 const Stack = createNativeStackNavigator();
@@ -28,6 +31,9 @@ const MyStackNavigator = () => {
         headerShown: false,
       }}>
       <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="Register" component={Register} />
+      <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+      <Stack.Screen name="OTP" component={OTP} />
     </Stack.Navigator>
   );
 };

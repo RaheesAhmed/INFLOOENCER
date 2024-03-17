@@ -8,13 +8,16 @@ import { useState } from 'react';
 import { MaterialIcons, Entypo, AntDesign } from '@expo/vector-icons';
 import Button from '../components/Button';
 
-const Login = ({ navigation }) => {
+const Register = ({ navigation }) => {
   const { t } = useTranslation();
   const { theme, globalStyles } = useTheme();
   const { textStyles } = globalStyles;
   const [data, setData] = useState({
+    fullName: '',
     username: '',
     password: '',
+    email: '',
+    contactNumber: '',
   });
 
   return (
@@ -24,50 +27,63 @@ const Login = ({ navigation }) => {
         <Text
           style={[
             textStyles.largeHeading,
-            { maxWidth: '50%', alignSelf: 'center', textAlign: 'center' },
+            { maxWidth: '70%', alignSelf: 'center', textAlign: 'center' },
           ]}>
-          {t('Login.heading')}
+          {t('Register.heading')}
         </Text>
         <View style={{ flex: 1, marginTop: 50 }}>
           <View style={styles.inputContainer}>
             <TextInput
+              value={data.fullName}
+              placeholder={t('Register.fullName')}
+              onChangeText={txt => setData({ ...data, fullName: txt })}
+              PreTextLogo={() => <MaterialIcons name="person" size={20} color={theme.primary} />}
+              error={false}
+            />
+            <TextInput
               value={data.username}
-              placeholder={t('Login.username')}
+              placeholder={t('Register.username')}
               onChangeText={txt => setData({ ...data, username: txt })}
+              PreTextLogo={() => <MaterialIcons name="person" size={20} color={theme.primary} />}
+              error={false}
+            />
+            <TextInput
+              value={data.email}
+              placeholder={t('Register.emailAddress')}
+              type="emailAddress"
+              keyboardType="email-address"
+              onChangeText={txt => setData({ ...data, email: txt })}
               PreTextLogo={() => <MaterialIcons name="email" size={20} color={theme.primary} />}
               error={false}
             />
-            <View style={{ gap: 10 }}>
-              <TextInput
-                value={data.password}
-                placeholder={t('Login.password')}
-                onChangeText={txt => setData({ ...data, password: txt })}
-                PreTextLogo={() => <MaterialIcons name="lock" size={20} color={theme.primary} />}
-                passwordType
-                postTextLogo
-                logoColor={theme.primary}
-                error={false}
-              />
-              <View style={styles.rowContainer}>
-                <Text style={[textStyles.lightText, { color: theme.smallText }]}>
-                  {t('Login.forgotPassword')}
-                </Text>
-                <Pressable onPress={() => navigation.navigate('ForgotPassword')}>
-                  <Text style={[textStyles.lightText, { color: theme.primary, fontWeight: '700' }]}>
-                    {t('Login.resetNow')}
-                  </Text>
-                </Pressable>
-              </View>
-            </View>
+            <TextInput
+              value={data.contactNumber}
+              placeholder={t('Register.contactNumber')}
+              type="telephoneNumber"
+              keyboardType="phone-pad"
+              onChangeText={txt => setData({ ...data, contactNumber: txt })}
+              PreTextLogo={() => <MaterialIcons name="phone" size={20} color={theme.primary} />}
+              error={false}
+            />
+            <TextInput
+              value={data.password}
+              placeholder={t('Register.password')}
+              onChangeText={txt => setData({ ...data, password: txt })}
+              PreTextLogo={() => <MaterialIcons name="lock" size={20} color={theme.primary} />}
+              passwordType
+              postTextLogo
+              logoColor={theme.primary}
+              error={false}
+            />
             <View style={styles.btnContainer}>
-              <Button text={t('Login.login')} />
+              <Button text={t('Register.registerNow')} />
               <View style={[styles.rowContainer, { alignSelf: 'center' }]}>
                 <Text style={[textStyles.lightText, { color: theme.smallText }]}>
-                  {t('Login.dontHaveAccount')}
+                  {t('Register.alreadyHaveAccount')}
                 </Text>
-                <Pressable onPress={() => navigation.navigate('Register')}>
+                <Pressable onPress={() => navigation.navigate('Login')}>
                   <Text style={[textStyles.lightText, { color: theme.primary, fontWeight: '700' }]}>
-                    {t('Login.signupNow')}
+                    {t('Register.signInNow')}
                   </Text>
                 </Pressable>
               </View>
@@ -93,7 +109,7 @@ const Login = ({ navigation }) => {
   );
 };
 
-export default Login;
+export default Register;
 
 const styles = StyleSheet.create({
   container: {

@@ -52,6 +52,8 @@ const InputField = ({
           { fontWeight: '400' },
           props.inputStyle,
         ]}
+        textContentType={props.type || 'none'}
+        keyboardType={props.keyboardType || 'default'}
         placeholder={placeholder}
         onChangeText={onChangeText}
         secureTextEntry={passwordType && !showPassword}
