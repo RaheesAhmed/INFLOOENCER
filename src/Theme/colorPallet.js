@@ -12,6 +12,7 @@ export const dark = {
   lightBoder: '#DADADA',
   yellowishGrey: '#EDE5D1',
   white: '#ffffff',
+  black: '#000000',
   red: '#C41012',
 };
 
@@ -29,5 +30,6 @@ export const light = {
   lightBoder: '#DADADA',
   yellowishGrey: '#EDE5D1',
   white: '#ffffff',
+  black: '#000000',
   red: '#C41012',
 };

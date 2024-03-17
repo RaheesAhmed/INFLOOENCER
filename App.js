@@ -11,6 +11,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 //======== SCREENS =========
 import Login from './src/screens/Login';
+import { ThemeProvider } from './src/Theme/ThemeContext';
 
 //======== NAVIGATORS =========
 const Stack = createNativeStackNavigator();
@@ -22,7 +23,10 @@ const TabNavigator = () => {};
 //======== STACK NAVIGATOR =========
 const MyStackNavigator = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}>
       <Stack.Screen name="Login" component={Login} />
     </Stack.Navigator>
   );
@@ -51,7 +55,11 @@ export default function App() {
     },
   });
 
-  return <Wrapper />;
+  return (
+    <ThemeProvider>
+      <Wrapper />
+    </ThemeProvider>
+  );
 }
 
 const styles = StyleSheet.create({

@@ -11,7 +11,7 @@ const Container = ({ children, scroll, style, scrollViewStyles }) => {
         showsVerticalScrollIndicator={false}
         contentContainerStyle={{ flexGrow: 1 }}
         nestedScrollEnabled
-        style={[globalStyles.padding, scrollViewStyles]}>
+        style={[globalStyles.padding, scrollViewStyles, style]}>
         <View style={[globalStyles.container, style]}>{children}</View>
       </ScrollView>
     </SafeAreaView>

@@ -1,6 +1,6 @@
 import { StyleSheet, TextInput, View, Animated } from 'react-native';
 import React, { useEffect, useRef } from 'react';
-import MaterialCommunityIcons from 'react-native-vector-icons/dist/MaterialCommunityIcons';
+import { Feather, Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../Theme/ThemeContext';
 
 const InputField = ({
@@ -38,8 +38,8 @@ const InputField = ({
         styles.container,
         {
           backgroundColor: colors.background,
-          borderBottomWidth: 1.5,
-          borderBottomColor: error ? colors.error : colors.border,
+          borderWidth: 1,
+          borderColor: error ? colors.red : colors.primary,
         },
         props.style,
       ]}>
@@ -59,15 +59,15 @@ const InputField = ({
         placeholderTextColor={colors.placeholderColor}
       />
       {error && (
-        <MaterialCommunityIcons
-          name="alert-circle-outline"
+        <Feather
+          name="alert-circle"
           size={20}
-          color={colors.error}
+          color={colors.red}
           style={{ marginRight: postTextLogo ? 10 : 0 }}
         />
       )}
       {postTextLogo && (
-        <MaterialCommunityIcons
+        <Ionicons
           onPress={handlePostLogoClick}
           name={
             !showPassword && !passwordType
