@@ -74,20 +74,20 @@ const Login = () => {
             </View>
           </View>
         </View>
-        <View style={[styles.rowContainer, { alignSelf: 'center', gap: 20 }]}>
-          <Button
-            style={[styles.socialBtn, { backgroundColor: theme.black, borderColor: theme.black }]}
-            ICON={() => <Entypo name="facebook-with-circle" size={24} color={theme.white} />}
-          />
-          <Button
-            style={[styles.socialBtn, { backgroundColor: theme.black, borderColor: theme.black }]}
-            ICON={() => <AntDesign name="google" size={24} color={theme.white} />}
-          />
-          <Button
-            style={[styles.socialBtn, { backgroundColor: theme.black, borderColor: theme.black }]}
-            ICON={() => <AntDesign name="apple1" size={24} color={theme.white} />}
-          />
-        </View>
+      </View>
+      <View style={[styles.rowContainer, { alignSelf: 'center', gap: 20, marginTop: 10 }]}>
+        <Button
+          style={[styles.socialBtn, { backgroundColor: theme.black, borderColor: theme.black }]}
+          ICON={() => <Entypo name="facebook-with-circle" size={24} color={theme.white} />}
+        />
+        <Button
+          style={[styles.socialBtn, { backgroundColor: theme.black, borderColor: theme.black }]}
+          ICON={() => <AntDesign name="google" size={24} color={theme.white} />}
+        />
+        <Button
+          style={[styles.socialBtn, { backgroundColor: theme.black, borderColor: theme.black }]}
+          ICON={() => <AntDesign name="apple1" size={24} color={theme.white} />}
+        />
       </View>
     </Container>
   );

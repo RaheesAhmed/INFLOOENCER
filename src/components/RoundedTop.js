@@ -30,7 +30,7 @@ export default RoundedTop;
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: '25%',
+    height: 170,
     position: 'relative',
     borderBottomLeftRadius: 200,
     borderBottomRightRadius: 200,
