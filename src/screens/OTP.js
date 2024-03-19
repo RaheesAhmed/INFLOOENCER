@@ -42,7 +42,7 @@ const OTP = ({ navigation }) => {
               onChangeText={txt => setOTP(txt)}
               error={false}
             />
-            {/* <OTPInputView
+            <OTPInputView
               ref={inputRef}
               style={{
                 width: '100%',
@@ -66,7 +66,7 @@ const OTP = ({ navigation }) => {
               onCodeFilled={code => {
                 console.log(`Code is ${code}, you are good to go!`);
               }}
-            /> */}
+            />
             <View style={styles.btnContainer}>
               <Button text={t('OTP.authenticate')} onPress={() => navigation.navigate('OTP')} />
               <View style={[styles.rowContainer, { alignSelf: 'center' }]}>
