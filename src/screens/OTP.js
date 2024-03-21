@@ -1,9 +1,9 @@
+import React, { useRef, useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { useTranslation } from 'react-i18next';
 import Container from '../components/Container';
 import RoundedTop from '../components/RoundedTop';
 import { useTheme } from '../Theme/ThemeContext';
-import { useEffect, useRef, useState } from 'react';
 import Button from '../components/Button';
 import OTPInputView from '@twotalltotems/react-native-otp-input';
 import TextInput from '../components/TextInput';
@@ -34,31 +34,18 @@ const OTP = ({ navigation }) => {
         </Text>
         <View style={{ flex: 1, marginTop: 50 }}>
           <View style={styles.inputContainer}>
-            <TextInput
-              value={otp}
-              placeholder={t('OTP.enterOTPCode')}
-              type="oneTimeCode"
-              keyboardType="decimal-pad"
-              onChangeText={txt => setOTP(txt)}
-              error={false}
-            />
             <OTPInputView
               ref={inputRef}
-              style={{
-                width: '100%',
-                height: 100,
-                justifyContent: 'center',
-                alignItems: 'center',
-              }}
+              style={styles.otpInput}
               pinCount={4}
               onCodeChanged={code => setOTP(code)}
               autoFocusOnLoad={false}
               codeInputFieldStyle={[
-                { width: 50, height: 50, borderRadius: 15 },
+                styles.codeInputField,
                 { backgroundColor: theme.background, ...textStyles.text },
               ]}
               codeInputHighlightStyle={{
-                borderColor: theme.lightPrimary,
+                borderColor: theme.normalText,
               }}
               keyboardAppearance={'dark'}
               keyboard
@@ -68,7 +55,11 @@ const OTP = ({ navigation }) => {
               }}
             />
             <View style={styles.btnContainer}>
-              <Button text={t('OTP.authenticate')} onPress={() => navigation.navigate('OTP')} />
+              <Button
+                text={t('OTP.authenticate')}
+                onPress={() => navigation.navigate('OTP')}
+                style={{}}
+              />
               <View style={[styles.rowContainer, { alignSelf: 'center' }]}>
                 <Text style={[textStyles.lightText, { color: theme.smallText }]}>
                   {t('OTP.didntRecieveOTP')}
@@ -97,6 +88,23 @@ const styles = StyleSheet.create({
   },
   inputContainer: {
     gap: 30,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  otpInput: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    maxWidth: 200,
+  },
+  codeInputField: {
+    width: 30,
+    height: 20,
+    borderRadius: 15,
+    marginHorizontal: 10,
+    borderWidth: 0,
+    borderBottomWidth: 1,
+    borderColor: 'gray',
   },
   rowContainer: {
     flexDirection: 'row',
@@ -106,6 +114,7 @@ const styles = StyleSheet.create({
   },
   btnContainer: {
     gap: 20,
+    width: '100%',
   },
   socialBtn: {
     borderRadius: 50,
