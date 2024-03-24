@@ -1,4 +1,4 @@
-import 'react-native-gesture-handler';
+// import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import FlashMessage from 'react-native-flash-message';
@@ -15,6 +15,7 @@ import { ThemeProvider } from './src/Theme/ThemeContext';
 import Register from './src/screens/Register';
 import ForgotPassword from './src/screens/ForgotPassword';
 import OTP from './src/screens/OTP';
+import Contacts from './src/screens/Contacts';
 
 //======== NAVIGATORS =========
 const Stack = createNativeStackNavigator();
@@ -30,6 +31,7 @@ const MyStackNavigator = () => {
       screenOptions={{
         headerShown: false,
       }}>
+      <Stack.Screen name="Contacts" component={Contacts} />
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="ForgotPassword" component={ForgotPassword} />

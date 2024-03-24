@@ -33,5 +33,9 @@
         "authenticate": "Authenticate",
         "didntRecieveOTP": "Didn't receive OTP?",
         "resendNow": "Resend Now"
+    },
+    "Messages": {
+        "heading": "Messages",
+        "search": "Search"
     }
 }

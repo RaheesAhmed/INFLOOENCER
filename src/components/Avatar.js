@@ -1,5 +1,5 @@
 import React from 'react';
-import { Pressable, View } from 'react-native';
+import { Image, Pressable, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import SvgImport from './SvgImport';
 import Edit from '../../assets/svgs/Edit';
@@ -10,12 +10,19 @@ const Avatar = ({ url, style, onImageLoadEnd, size, onPress, editable = false, c
       onPress={() => onPress()}
       disabled={!editable}
       style={[{ width: size || 70, height: size || 70, position: 'relative' }, style]}>
-      <FastImage
+      {/* <FastImage
         style={[{ width: size || 70, height: size || 70 }, style]}
         onLoadEnd={onImageLoadEnd || null}
         source={{
           uri: url || '../../assets/images/placeholderAvatar.png',
           priority: FastImage.priority.high,
+        }}
+        resizeMode={cover ? 'cover' : 'contain'}
+      /> */}
+      <Image
+        style={[{ width: size || 70, height: size || 70 }, style]}
+        source={{
+          uri: url || '../../assets/images/placeholderAvatar.png',
         }}
         resizeMode={cover ? 'cover' : 'contain'}
       />

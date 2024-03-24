@@ -47,7 +47,7 @@ const OTP = ({ navigation }) => {
               codeInputHighlightStyle={{
                 borderColor: theme.normalText,
               }}
-              keyboardAppearance={'dark'}
+              keyboardAppearance="dark"
               keyboard
               editable
               onCodeFilled={code => {
