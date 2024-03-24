@@ -40,5 +40,10 @@
     },
     "Inbox": {
         "typeMessage": "Type message"
+    },
+    "SelectInterest": {
+        "heading": "Select Interest",
+        "subHeading": "Select your interest to get started",
+        "done": "Done"
     }
 }
