@@ -28,17 +28,17 @@ const Header = ({
   return (
     <View style={[styles.container, { gap: leftAlign ? 15 : 0 }, style]}>
       {!avatar ? (
-        <View style={applyBorder ? styles.iconContainer : null}>
-          {LeftIcon && (
+        LeftIcon && (
+          <View style={applyBorder ? styles.iconContainer : null}>
             <Pressable onPress={onLeftIconPress}>
               <LeftIcon />
             </Pressable>
-          )}
-        </View>
+          </View>
+        )
       ) : (
         <View style={styles.avatarContainer}>
           <Avatar url={avatar} style={{ borderRadius: 50, width: 30, height: 30 }} />
-          <Text style={textStyles.heading}>{name}</Text>
+          <Text style={textStyles.largeHeading}>{name}</Text>
         </View>
       )}
       <View

@@ -25,6 +25,7 @@ const Avatar = ({ url, style, onImageLoadEnd, size, onPress, editable = false, c
           uri: url || '../../assets/images/placeholderAvatar.png',
         }}
         resizeMode={cover ? 'cover' : 'contain'}
+        resizeMethod="auto"
       />
       {editable && (
         <View

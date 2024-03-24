@@ -1,8 +1,7 @@
 import { StyleSheet, TextInput, View } from 'react-native';
 import React from 'react';
 import { useTheme } from '../Theme/ThemeContext';
-import Feather from 'react-native-vector-icons/dist/Feather';
-
+import { AntDesign } from '@expo/vector-icons';
 const SearchBar = ({
   plceholder,
   onChangeText,
@@ -16,10 +15,10 @@ const SearchBar = ({
 
   return (
     <View style={[styles.container, style]}>
-      <Feather name="search" size={20} color={theme.greishBackground} />
+      <AntDesign name="search1" size={15} color="black" />
       <TextInput
         placeholder={plceholder}
-        placeholderTextColor={theme.greishBackground}
+        placeholderTextColor={theme.normalText}
         onChangeText={onChangeText}
         value={value}
         style={[textStyles.lightText, { flex: 1, color: theme.normalText }]}
@@ -32,14 +31,14 @@ export default SearchBar;
 
 const myStyles = (theme, rightAligned) => ({
   container: {
-    backgroundColor: theme.fieldsBack,
+    backgroundColor: theme.greishBackground,
     borderRadius: 10,
-    padding: 1,
+    padding: 7,
     paddingHorizontal: 10,
     width: '100%',
     flexDirection: rightAligned ? 'row-reverse' : 'row',
     justifyContent: rightAligned ? 'space-between' : 'flex-start',
     alignItems: 'center',
-    flex: 1,
+    gap: 10,
   },
 });

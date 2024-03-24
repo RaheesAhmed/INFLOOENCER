@@ -16,6 +16,7 @@ import Register from './src/screens/Register';
 import ForgotPassword from './src/screens/ForgotPassword';
 import OTP from './src/screens/OTP';
 import Contacts from './src/screens/Contacts';
+import Inbox from './src/screens/Inbox';
 
 //======== NAVIGATORS =========
 const Stack = createNativeStackNavigator();
@@ -32,6 +33,7 @@ const MyStackNavigator = () => {
         headerShown: false,
       }}>
       <Stack.Screen name="Contacts" component={Contacts} />
+      <Stack.Screen name="Inbox" component={Inbox} />
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="ForgotPassword" component={ForgotPassword} />

@@ -4,7 +4,7 @@ import Avatar from './Avatar';
 import { Entypo } from '@expo/vector-icons';
 import { useTheme } from '../Theme/ThemeContext';
 
-const ContactItem = ({ id, avatar, name, lastMsg, lastMsgTime, onPress }) => {
+const ContactItem = ({ id, avatar, name, lastMsg, lastMsgTime, onPress, style }) => {
   const { theme, globalStyles } = useTheme();
   const { textStyles } = globalStyles;
 
@@ -15,8 +15,8 @@ const ContactItem = ({ id, avatar, name, lastMsg, lastMsgTime, onPress }) => {
           onPress(id);
         }
       }}
-      style={styles.container}>
-      <Avatar url={avatar} style={styles.avatar} />
+      style={[styles.container, style]}>
+      <Avatar url={avatar} style={styles.avatar} cover size={50} />
       <View style={styles.bodyContainer}>
         <View style={styles.textContainer}>
           <Text style={[theme.text, { fontWeight: '700' }]}>{name}</Text>
@@ -39,14 +39,23 @@ const styles = StyleSheet.create({
   avatar: {
     width: 50,
     height: 50,
-    borderRadius: 20,
+    borderRadius: 10,
+    overflow: 'hidden',
   },
   container: {
     backgroundColor: 'white',
-    borderRadius: 20,
+    borderRadius: 10,
     flexDirection: 'row',
     gap: 10,
     padding: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 1,
+    },
+    shadowOpacity: 0.22,
+    shadowRadius: 2.22,
+    elevation: 3,
   },
   bodyContainer: {
     flex: 1,
@@ -56,9 +65,11 @@ const styles = StyleSheet.create({
   textContainer: {
     flex: 1,
     justifyContent: 'space-between',
+    gap: 5,
   },
   timeContainer: {
     justifyContent: 'space-between',
     alignItems: 'flex-end',
+    gap: 5,
   },
 });
