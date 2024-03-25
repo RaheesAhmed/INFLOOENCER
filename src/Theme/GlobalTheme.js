@@ -13,6 +13,10 @@ export const mystyles = colors =>
       paddingHorizontal: 20,
       paddingTop: Offset.AndroidSafeArea.paddingTop,
     },
+    row: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
     textStyles: {
       largeHeading: {
         // fontFamily: 'Inter',

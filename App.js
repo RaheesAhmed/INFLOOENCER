@@ -18,6 +18,7 @@ import OTP from './src/screens/OTP';
 import Contacts from './src/screens/Contacts';
 import Inbox from './src/screens/Inbox';
 import SelectInterest from './src/screens/SelectInterest';
+import Notification from './src/screens/Notification';
 
 //======== NAVIGATORS =========
 const Stack = createNativeStackNavigator();
@@ -33,10 +34,14 @@ const MyStackNavigator = () => {
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="SelectInterest" component={SelectInterest} />
+      <Stack.Screen name="Notification" component={Notification} />
+
       <Stack.Screen name="Contacts" component={Contacts} />
-      <Stack.Screen name="Inbox" component={Inbox} />
+
       <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="SelectInterest" component={SelectInterest} />
+      <Stack.Screen name="Inbox" component={Inbox} />
+
       <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
       <Stack.Screen name="OTP" component={OTP} />
