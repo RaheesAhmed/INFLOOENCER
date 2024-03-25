@@ -20,7 +20,13 @@ const RoundedTop = ({ style, image, shade, children }) => {
         style={{ position: 'absolute', bottom: -50, left: 20 }}
       /> */}
       <Image
-        source={image ? { uri: image } : require('../../assets/images/placeholderAvatar.png')}
+        source={
+          image && typeof image === 'string'
+            ? { uri: image }
+            : image
+              ? image
+              : require('../../assets/images/placeholderAvatar.png')
+        }
         style={styles.image}
       />
     </ImageBackground>
@@ -33,7 +39,7 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     minHeight: 170,
-    height: 'auto',
+    // height: 'auto',
     position: 'relative',
     borderBottomLeftRadius: 200,
     borderBottomRightRadius: 200,

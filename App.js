@@ -35,15 +35,15 @@ const MyStackNavigator = () => {
       screenOptions={{
         headerShown: false,
       }}>
+      <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="OTP" component={OTP} />
       <Stack.Screen name="Wallet" component={Wallet} />
       <Stack.Screen name="Notification" component={Notification} />
       <Stack.Screen name="Contacts" component={Contacts} />
-      <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="SelectInterest" component={SelectInterest} />
       <Stack.Screen name="Inbox" component={Inbox} />
       <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
-      <Stack.Screen name="OTP" component={OTP} />
     </Stack.Navigator>
   );
 };

@@ -90,7 +90,7 @@ const SelectInterest = ({ navigation }) => {
   return (
     <Container>
       <Header
-        heading={'Andrew Willson'}
+        heading="Andrew Willson"
         LeftIcon={() => <MaterialIcons name="arrow-back" size={20} color={theme.primary} />}
         onLeftIconPress={() => navigation.goBack()}
         applyBorder={false}
