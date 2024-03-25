@@ -1,4 +1,5 @@
 import { StyleSheet } from 'react-native';
+import Offset from './Offset';
 
 export const mystyles = colors =>
   StyleSheet.create({
@@ -10,7 +11,7 @@ export const mystyles = colors =>
     padding: {
       paddingBottom: 20,
       paddingHorizontal: 20,
-      // paddingTop: Platform.OS === "android" ? StatusBar.currentHeight : 0,
+      paddingTop: Offset.AndroidSafeArea.paddingTop,
     },
     textStyles: {
       largeHeading: {
