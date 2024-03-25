@@ -18,6 +18,7 @@ import OTP from './src/screens/OTP';
 import Contacts from './src/screens/Contacts';
 import Inbox from './src/screens/Inbox';
 import SelectInterest from './src/screens/SelectInterest';
+import Wallet from './src/screens/Wallet';
 
 //======== NAVIGATORS =========
 const Stack = createNativeStackNavigator();
@@ -33,6 +34,7 @@ const MyStackNavigator = () => {
       screenOptions={{
         headerShown: false,
       }}>
+      <Stack.Screen name="Wallet" component={Wallet} />
       <Stack.Screen name="SelectInterest" component={SelectInterest} />
       <Stack.Screen name="Contacts" component={Contacts} />
       <Stack.Screen name="Inbox" component={Inbox} />

@@ -8,6 +8,7 @@ const SwapMenu = ({ options, style, onChangeSelect, useOptionWidth, children }) 
   const [selected, setSelected] = useState(options[0]);
   const selectedRef = useRef(selected);
   const [containerWidth, setContainerWidth] = useState(0);
+  const [textWidth, setTextWidth] = useState(0); // this is the width of the text inside the option
   const [optionWidth, setOptionWidth] = useState(0);
   const animation = useRef(new Animated.Value(0)).current; // this is the animation for the indicator initially it is at 0
   const panResponder = useRef(
@@ -82,8 +83,14 @@ const SwapMenu = ({ options, style, onChangeSelect, useOptionWidth, children }) 
             onLayout={e => {
               const { width } = e.nativeEvent.layout;
               setOptionWidth(width);
+              console.log(width);
             }}>
             <Text
+              onLayout={e => {
+                const { width } = e.nativeEvent.layout;
+                setTextWidth(width);
+                console.log(width);
+              }}
               style={[
                 textStyles.text,
                 {
@@ -106,7 +113,7 @@ const SwapMenu = ({ options, style, onChangeSelect, useOptionWidth, children }) 
                     // interpolate is used to animate the indicator from one position to another
                     inputRange: [0, 1],
                     outputRange: [
-                      0 + padding.paddingHorizontal - (useOptionWidth ? 10 : 0),
+                      0 + padding.paddingHorizontal / 2 - (useOptionWidth ? 10 : 0),
                       containerWidth / options.length +
                         padding.paddingHorizontal / 2 +
                         (useOptionWidth ? optionWidth * 1 + padding.paddingHorizontal / 2 : 0),
