@@ -91,6 +91,7 @@ const Register = ({ navigation }) => {
           </View>
         </View>
       </View>
+
       <View style={[styles.rowContainer, { alignSelf: 'center', gap: 20, marginTop: 10 }]}>
         <Button
           style={[styles.socialBtn, { backgroundColor: theme.black, borderColor: theme.black }]}
