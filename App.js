@@ -22,6 +22,7 @@ import Wallet from './src/screens/Wallet';
 import Notification from './src/screens/Notification';
 import Settings from './src/screens/Settings';
 import ProfileSettings from './src/screens/ProfileSettings';
+import ChangePassword from './src/screens/ChangePassword';
 
 //======== NAVIGATORS =========
 const Stack = createNativeStackNavigator();
@@ -37,6 +38,9 @@ const MyStackNavigator = () => {
       screenOptions={{
         headerShown: false,
       }}>
+      <Stack.Screen name="Wallet" component={Wallet} />
+
+      <Stack.Screen name="ChangePassword" component={ChangePassword} />
       <Stack.Screen name="ProfileSettings" component={ProfileSettings} />
 
       <Stack.Screen name="Login" component={Login} />
@@ -46,7 +50,6 @@ const MyStackNavigator = () => {
       <Stack.Screen name="Settings" component={Settings} />
 
       <Stack.Screen name="OTP" component={OTP} />
-      <Stack.Screen name="Wallet" component={Wallet} />
       <Stack.Screen name="Contacts" component={Contacts} />
       <Stack.Screen name="SelectInterest" component={SelectInterest} />
       <Stack.Screen name="Inbox" component={Inbox} />

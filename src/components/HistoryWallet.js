@@ -12,6 +12,7 @@ const HistoryWallet = ({ data, type }) => {
       <Text style={[textStyles.smallHeading, { textAlign: 'center' }]}>History</Text>
       <FlatList
         data={data}
+        showsVerticalScrollIndicator={false}
         renderItem={({ item }) => (
           <Pressable style={[styles.item, { borderBottomColor: theme.lightBoder }]}>
             <View style={{ flex: 1 }}>
