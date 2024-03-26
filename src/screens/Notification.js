@@ -1,28 +1,13 @@
-import { FlatList, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet } from 'react-native';
 import React, { useState } from 'react';
 import Container from '../components/Container';
 import Header from '../components/Header';
-import { useTranslation } from 'react-i18next';
 import { useTheme } from '../Theme/ThemeContext';
-import { MaterialIcons, MaterialCommunityIcons, Entypo, FontAwesome } from '@expo/vector-icons';
-import InterestItem from '../components/InterestItem';
-import Button from '../components/Button';
-import ContactItem from '../components/ContactItem';
+import { MaterialIcons } from '@expo/vector-icons';
 import NotificationItem from '../components/NotificationItem';
 
 const Notification = ({ navigation }) => {
-  const { t } = useTranslation();
-  const { theme, globalStyles } = useTheme();
-  const { textStyles } = globalStyles;
-  const [selectedCategories, setSelectedCategories] = useState([]);
-
-  const handleSelectCategory = id => {
-    if (selectedCategories.includes(id)) {
-      setSelectedCategories(selectedCategories.filter(item => item !== id));
-    } else {
-      setSelectedCategories([...selectedCategories, id]);
-    }
-  };
+  const { theme } = useTheme();
 
   const [Notifications, setNotifications] = useState([
     {
@@ -102,7 +87,11 @@ const Notification = ({ navigation }) => {
             lastMsgTime={item.timeStamp}
             avatar={item.avatar}
             message={item.message}
-            onPress={() => navigation.navigate('Inbox', { name: item.name })}
+            onPress={() => {
+              console.log('====================================');
+              console.log('Notification Clicked');
+              console.log('====================================');
+            }}
           />
         )}
       />

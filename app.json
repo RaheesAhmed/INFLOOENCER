@@ -8,20 +8,21 @@
     "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/images/Splash.png",
-      "resizeMode": "cover"
+      "resizeMode": "cover",
+      "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.inflooncer"
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "foregroundImage": "./assets/Splash.png",
+        "backgroundColor": "#ffffff",
+        "resizeMode": "cover"
+      },
+      "package": "com.inflooncer"
     },
     "web": {
       "favicon": "./assets/favicon.png"

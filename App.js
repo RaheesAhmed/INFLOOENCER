@@ -19,6 +19,8 @@ import Contacts from './src/screens/Contacts';
 import Inbox from './src/screens/Inbox';
 import SelectInterest from './src/screens/SelectInterest';
 import Notification from './src/screens/Notification';
+import Settings from './src/screens/Settings';
+import ProfileSettings from './src/screens/ProfileSettings';
 
 //======== NAVIGATORS =========
 const Stack = createNativeStackNavigator();
@@ -34,6 +36,11 @@ const MyStackNavigator = () => {
       screenOptions={{
         headerShown: false,
       }}>
+      <Stack.Screen name="ProfileSettings" component={ProfileSettings} />
+
+      <Stack.Screen name="OTP" component={OTP} />
+
+      <Stack.Screen name="Settings" component={Settings} />
       <Stack.Screen name="Notification" component={Notification} />
 
       <Stack.Screen name="Contacts" component={Contacts} />
@@ -44,7 +51,6 @@ const MyStackNavigator = () => {
 
       <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
-      <Stack.Screen name="OTP" component={OTP} />
     </Stack.Navigator>
   );
 };
@@ -74,6 +80,8 @@ export default function App() {
 
   return (
     <ThemeProvider>
+      <StatusBar style="inverted" />
+
       <Wrapper />
     </ThemeProvider>
   );

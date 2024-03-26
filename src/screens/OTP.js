@@ -5,8 +5,7 @@ import Container from '../components/Container';
 import RoundedTop from '../components/RoundedTop';
 import { useTheme } from '../Theme/ThemeContext';
 import Button from '../components/Button';
-import OTPInputView from '@twotalltotems/react-native-otp-input';
-import TextInput from '../components/TextInput';
+import OTPTextInput from 'react-native-otp-textinput';
 
 const OTP = ({ navigation }) => {
   const { t } = useTranslation();
@@ -34,7 +33,7 @@ const OTP = ({ navigation }) => {
         </Text>
         <View style={{ flex: 1, marginTop: 50 }}>
           <View style={styles.inputContainer}>
-            <OTPInputView
+            {/* <OTPInputView
               ref={inputRef}
               style={styles.otpInput}
               pinCount={4}
@@ -53,7 +52,8 @@ const OTP = ({ navigation }) => {
               onCodeFilled={code => {
                 console.log(`Code is ${code}, you are good to go!`);
               }}
-            />
+            /> */}
+            <OTPTextInput ref={e => (this.otpInput = e)} />
             <View style={styles.btnContainer}>
               <Button
                 text={t('OTP.authenticate')}

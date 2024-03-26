@@ -14,6 +14,7 @@ export const dark = {
   white: '#ffffff',
   black: '#000000',
   red: '#C41012',
+  lightGrey: '#42526E70',
 };
 
 export const light = {
@@ -32,4 +33,5 @@ export const light = {
   white: '#ffffff',
   black: '#000000',
   red: '#C41012',
+  lightGrey: '#42526E70',
 };

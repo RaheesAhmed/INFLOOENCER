@@ -11,7 +11,7 @@ export const mystyles = colors =>
     padding: {
       paddingBottom: 20,
       paddingHorizontal: 20,
-      paddingTop: Offset.AndroidSafeArea.paddingTop,
+      marginTop: Offset.AndroidSafeArea.paddingTop,
     },
     row: {
       flexDirection: 'row',

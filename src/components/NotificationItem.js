@@ -1,10 +1,10 @@
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import React from 'react';
-import Avatar from './Avatar';
 import { Entypo } from '@expo/vector-icons';
 import { useTheme } from '../Theme/ThemeContext';
+import SvgImport from './SvgImport';
 
-const NotificationItem = ({ id, avatar, name, lastMsg, lastMsgTime, onPress, style }) => {
+const NotificationItem = ({ id, title, lastMsg, lastMsgTime, onPress, style, icon }) => {
   const { theme, globalStyles } = useTheme();
   const { textStyles } = globalStyles;
 
@@ -16,21 +16,15 @@ const NotificationItem = ({ id, avatar, name, lastMsg, lastMsgTime, onPress, sty
         }
       }}
       style={[styles.container, style]}>
-      <Avatar url={avatar} style={styles.avatar} cover size={50} />
+      <View style={styles.avatar}>
+        <SvgImport svg={icon} />
+      </View>
       <View style={styles.bodyContainer}>
-        <View style={styles.textContainer}>
-          <View style={globalStyles.row}>
-            <Text style={[theme.text, { fontWeight: '700', color: theme.primary }]}>{name} </Text>
-            <Text
-              style={(theme.lightText, { color: theme.text, marginLeft: 2 })}
-              numberOfLines={1}
-              ellipsizeMode="tail">
-              {/* Check length and add ... */}
-              {lastMsg?.length > 23 ? lastMsg.slice(0, 20) + '...' : lastMsg}
-            </Text>
-          </View>
-
-          <Text style={[textStyles.lightText]}>{lastMsgTime}</Text>
+        <View style={globalStyles.row}>
+          <Text style={[textStyles.text, { color: theme.primary }]}>{title} </Text>
+        </View>
+        <View style={styles.timeContainer}>
+          <Entypo name="chevron-right" size={20} color={theme.lightGrey} />
         </View>
       </View>
     </Pressable>
@@ -41,10 +35,8 @@ export default NotificationItem;
 
 const styles = StyleSheet.create({
   avatar: {
-    width: 50,
-    height: 50,
-    borderRadius: 10,
     overflow: 'hidden',
+    alignSelf: 'center',
   },
   container: {
     backgroundColor: 'white',
@@ -65,6 +57,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     flexDirection: 'row',
+    justifyContent: 'space-between',
   },
   textContainer: {
     flex: 1,
@@ -72,7 +65,7 @@ const styles = StyleSheet.create({
     gap: 5,
   },
   timeContainer: {
-    justifyContent: 'space-between',
+    justifyContent: 'center',
     alignItems: 'flex-end',
     gap: 5,
   },
