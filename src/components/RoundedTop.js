@@ -1,7 +1,7 @@
 import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native';
 // import Avatar from './Avatar';
 
-const RoundedTop = ({ style, image, shade }) => {
+const RoundedTop = ({ style, image, shade, children }) => {
   return (
     <ImageBackground
       source={require('../../assets/images/roundedTop.png')}
@@ -11,6 +11,8 @@ const RoundedTop = ({ style, image, shade }) => {
         height: '100%',
       }}
       style={[styles.container, style]}>
+      <View style={[styles.overlay, { backgroundColor: shade || 'rgba(0,0,0,0.5)' }]} />
+      {children}
       {/* //TODO: use Fast Image */}
       {/* <Avatar
         url="https://www.w3schools.com/w3images/avatar2.png"
@@ -18,7 +20,13 @@ const RoundedTop = ({ style, image, shade }) => {
         style={{ position: 'absolute', bottom: -50, left: 20 }}
       /> */}
       <Image
-        source={image || require('../../assets/images/placeholderAvatar.png')}
+        source={
+          image && typeof image === 'string'
+            ? { uri: image }
+            : image
+              ? image
+              : require('../../assets/images/placeholderAvatar.png')
+        }
         style={styles.image}
       />
     </ImageBackground>
@@ -30,7 +38,8 @@ export default RoundedTop;
 const styles = StyleSheet.create({
   container: {
     width: '100%',
-    height: 170,
+    minHeight: 170,
+    // height: 'auto',
     position: 'relative',
     borderBottomLeftRadius: 200,
     borderBottomRightRadius: 200,
@@ -45,5 +54,10 @@ const styles = StyleSheet.create({
     bottom: -50,
     borderWidth: 2,
     borderColor: 'white',
+  },
+  overlay: {
+    ...StyleSheet.absoluteFillObject,
+    borderBottomLeftRadius: 200,
+    borderBottomRightRadius: 200,
   },
 });

@@ -45,5 +45,15 @@
         "heading": "Select Interest",
         "subHeading": "Select your interest to get started",
         "done": "Done"
+    },
+    "Wallet": {
+        "welcome": "Welcome",
+        "theseAreYourPoints": "These are your points",
+        "select": "Select",
+        "redeem": "Redeem",
+        "tip": "Tip",
+        "points": "Points",
+        "myBalance": "My Balance",
+        "history": "History"
     }
 }

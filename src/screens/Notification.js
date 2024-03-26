@@ -69,7 +69,7 @@ const Notification = ({ navigation }) => {
   return (
     <Container>
       <Header
-        heading={'Notification'}
+        heading="Notification"
         LeftIcon={() => <MaterialIcons name="arrow-back" size={20} color={theme.primary} />}
         onLeftIconPress={() => navigation.goBack()}
         applyBorder={false}

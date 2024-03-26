@@ -18,6 +18,7 @@ import OTP from './src/screens/OTP';
 import Contacts from './src/screens/Contacts';
 import Inbox from './src/screens/Inbox';
 import SelectInterest from './src/screens/SelectInterest';
+import Wallet from './src/screens/Wallet';
 import Notification from './src/screens/Notification';
 import Settings from './src/screens/Settings';
 import ProfileSettings from './src/screens/ProfileSettings';
@@ -38,17 +39,15 @@ const MyStackNavigator = () => {
       }}>
       <Stack.Screen name="ProfileSettings" component={ProfileSettings} />
 
-      <Stack.Screen name="OTP" component={OTP} />
-
       <Stack.Screen name="Settings" component={Settings} />
-      <Stack.Screen name="Notification" component={Notification} />
-
-      <Stack.Screen name="Contacts" component={Contacts} />
 
       <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="OTP" component={OTP} />
+      <Stack.Screen name="Wallet" component={Wallet} />
+      <Stack.Screen name="Notification" component={Notification} />
+      <Stack.Screen name="Contacts" component={Contacts} />
       <Stack.Screen name="SelectInterest" component={SelectInterest} />
       <Stack.Screen name="Inbox" component={Inbox} />
-
       <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
     </Stack.Navigator>
