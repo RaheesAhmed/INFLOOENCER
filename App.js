@@ -37,11 +37,11 @@ const MyStackNavigator = () => {
       screenOptions={{
         headerShown: false,
       }}>
+      <Stack.Screen name="ProfileSettings" component={ProfileSettings} />
+
       <Stack.Screen name="Notification" component={Notification} />
 
       <Stack.Screen name="Settings" component={Settings} />
-
-      <Stack.Screen name="ProfileSettings" component={ProfileSettings} />
 
       <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="OTP" component={OTP} />

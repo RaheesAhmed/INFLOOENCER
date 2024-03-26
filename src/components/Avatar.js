@@ -2,20 +2,32 @@ import React, { useState } from 'react';
 import { Image, Pressable, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import SvgImport from './SvgImport';
-import Edit from '../../assets/svgs/Edit';
-import { use } from 'i18next';
+import upload from '../../assets/svgs/upload';
 
 const Avatar = ({ url, style, onImageLoadEnd, size, onPress, editable = false, cover = false }) => {
-  const [uri, setUri] = useState(url || null);
   return (
     <Pressable
       onPress={() => onPress()}
       disabled={!editable}
-      style={[{ width: size || 70, height: size || 70, position: 'relative' }, style]}>
+      style={[
+        {
+          width: size || 70,
+          height: size || 70,
+
+          position: 'relative',
+        },
+        style,
+      ]}>
       <FastImage
         style={[{ width: size || 70, height: size || 70 }, style]}
         onLoadEnd={onImageLoadEnd || null}
-        source={!uri ? require('../../assets/images/placeholderAvatar.png') : { uri: uri }}
+        source={
+          url === 'null' || url === 'undefined' || url === ' ' || url === null || url === undefined
+            ? require('../../assets/images/placeholderAvatar.png')
+            : {
+                uri: 'file:///data/user/0/com.inflooncer/cache/rn_image_picker_lib_temp_ac4fd0c4-1ac2-4f85-b3ff-67f14b80f940.jpg',
+              }
+        }
         resizeMode={cover ? 'cover' : 'contain'}
       />
 
@@ -29,7 +41,11 @@ const Avatar = ({ url, style, onImageLoadEnd, size, onPress, editable = false, c
             borderRadius: 100,
             padding: 5,
           }}>
-          <SvgImport svg={Edit} size={20} style={{ backgroundColor: 'white', borderRadius: 100 }} />
+          <SvgImport
+            svg={upload}
+            size={20}
+            style={{ backgroundColor: 'white', borderRadius: 100 }}
+          />
         </View>
       )}
     </Pressable>
