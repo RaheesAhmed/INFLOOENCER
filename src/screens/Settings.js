@@ -4,12 +4,12 @@ import Container from '../components/Container';
 import Header from '../components/Header';
 import { useTheme } from '../Theme/ThemeContext';
 import { MaterialIcons } from '@expo/vector-icons';
-import NotificationItem from '../components/NotificationItem';
 import lock from '../../assets/svgs/lock.js';
 import logout from '../../assets/svgs/logout.js';
 import shield from '../../assets/svgs/shield.js';
 import pen from '../../assets/svgs/pen.js';
 import user from '../../assets/svgs/user.js';
+import SettingsItem from '../components/SettingsItem.js';
 
 const Settings = ({ navigation }) => {
   const { theme } = useTheme();
@@ -56,7 +56,7 @@ const Settings = ({ navigation }) => {
         keyExtractor={(item, index) => item.id.toString() + index}
         showsVerticalScrollIndicator={false}
         renderItem={({ item }) => (
-          <NotificationItem
+          <SettingsItem
             id={item.id}
             icon={item.icon}
             message={item.message}

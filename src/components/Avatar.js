@@ -1,32 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Image, Pressable, View } from 'react-native';
 import FastImage from 'react-native-fast-image';
 import SvgImport from './SvgImport';
 import Edit from '../../assets/svgs/Edit';
+import { use } from 'i18next';
 
 const Avatar = ({ url, style, onImageLoadEnd, size, onPress, editable = false, cover = false }) => {
+  const [uri, setUri] = useState(url || null);
   return (
     <Pressable
       onPress={() => onPress()}
       disabled={!editable}
       style={[{ width: size || 70, height: size || 70, position: 'relative' }, style]}>
-      {/* <FastImage
+      <FastImage
         style={[{ width: size || 70, height: size || 70 }, style]}
         onLoadEnd={onImageLoadEnd || null}
-        source={{
-          uri: url || '../../assets/images/placeholderAvatar.png',
-          priority: FastImage.priority.high,
-        }}
+        source={!uri ? require('../../assets/images/placeholderAvatar.png') : { uri: uri }}
         resizeMode={cover ? 'cover' : 'contain'}
-      /> */}
-      <Image
-        style={[{ width: size || 70, height: size || 70 }, style]}
-        source={{
-          uri: url || '../../assets/images/placeholderAvatar.png',
-        }}
-        resizeMode={cover ? 'cover' : 'contain'}
-        resizeMethod="auto"
       />
+
       {editable && (
         <View
           style={{
