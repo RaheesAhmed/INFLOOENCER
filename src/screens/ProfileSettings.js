@@ -6,6 +6,8 @@ import Header from '../components/Header';
 import { useTheme } from '../Theme/ThemeContext';
 import Avatar from '../components/Avatar';
 import { launchImageLibrary } from 'react-native-image-picker';
+import TextInput from '../components/TextInput';
+import Button from '../components/Button';
 
 const ProfileSettings = ({ navigation }) => {
   const { theme } = useTheme();
@@ -58,6 +60,7 @@ const ProfileSettings = ({ navigation }) => {
     <Container
       style={{
         alignItems: 'center',
+        justifyContent: 'space-between',
       }}>
       <Header
         heading={'Profile Settings'}
@@ -65,15 +68,72 @@ const ProfileSettings = ({ navigation }) => {
         onLeftIconPress={() => navigation.goBack()}
         applyBorder={false}
       />
+      <View>
+        <Avatar
+          size={100}
+          cover
+          editable
+          url={url}
+          onPress={() => selectImage()}
+          style={{
+            borderRadius: 200,
+          }}
+        />
+      </View>
 
-      <Avatar
-        size={100}
-        cover
-        editable
-        url={url}
-        onPress={() => selectImage()}
+      {/*  Full Name Email Address Contact Number Age Gender */}
+      <View style={{ width: '100%', justifyContent: 'space-around', flex: 1, marginTop: 40 }}>
+        <TextInput
+          placeholder="Full Name"
+          type="name"
+          style={{
+            marginVertical: 10,
+          }}
+        />
+
+        <TextInput
+          placeholder="Email Address"
+          type="email"
+          style={{
+            marginVertical: 10,
+          }}
+        />
+
+        <TextInput
+          placeholder="Contact Number"
+          keyboardType="number-pad"
+          style={{
+            marginVertical: 10,
+          }}
+        />
+
+        <TextInput
+          placeholder="Age"
+          keyboardType="number-pad"
+          style={{
+            marginVertical: 10,
+          }}
+        />
+
+        <TextInput
+          placeholder="Gender"
+          style={{
+            marginVertical: 10,
+          }}
+        />
+      </View>
+
+      <Button
+        text="Save"
+        onPress={() => {
+          console.log('====================================');
+          console.log('Save Clicked');
+          console.log('====================================');
+        }}
         style={{
-          borderRadius: 200,
+          marginVertical: 20,
+          width: '100%',
+          marginTop: 100,
         }}
       />
     </Container>
