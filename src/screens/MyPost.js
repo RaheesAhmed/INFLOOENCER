@@ -7,7 +7,7 @@ import heart from '../../assets/svgs/heart';
 import eye from '../../assets/svgs/eye';
 
 const MyPost = ({ item }) => {
-  const { theme, globalStyles } = useTheme();
+  const { globalStyles } = useTheme();
   const { textStyles } = globalStyles;
   return (
     <View>

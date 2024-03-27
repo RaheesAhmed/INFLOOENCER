@@ -34,6 +34,19 @@ const ProfileView = ({ navigation, route }) => {
       shares: 300,
       views: 400,
     },
+    {
+      id: 2,
+      name: 'John Doe',
+      time: '3hrs ago',
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus eget sapien.',
+      avatar: 'https://i.pravatar.cc/150?img=49',
+      image: 'https://random.imagecdn.app/500/150',
+      likes: 100,
+      comments: 200,
+      shares: 300,
+      views: 400,
+    },
   ]);
   const [balance, setBalance] = React.useState([
     {
