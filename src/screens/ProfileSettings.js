@@ -63,7 +63,7 @@ const ProfileSettings = ({ navigation }) => {
         justifyContent: 'space-between',
       }}>
       <Header
-        heading={'Profile Settings'}
+        heading="Profile Settings"
         LeftIcon={() => <MaterialIcons name="arrow-back" size={20} color={theme.primary} />}
         onLeftIconPress={() => navigation.goBack()}
         applyBorder={false}

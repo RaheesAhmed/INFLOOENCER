@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
     marginTop: 60,
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 20,
+    gap: 10,
   },
   actionContainer: {
     flexDirection: 'row',

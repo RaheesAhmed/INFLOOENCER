@@ -45,7 +45,7 @@ const Settings = ({ navigation }) => {
   return (
     <Container>
       <Header
-        heading={'Settings'}
+        heading="Settings"
         LeftIcon={() => <MaterialIcons name="arrow-back" size={20} color={theme.primary} />}
         onLeftIconPress={() => navigation.goBack()}
         applyBorder={false}

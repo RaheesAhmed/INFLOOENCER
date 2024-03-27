@@ -53,7 +53,30 @@ const OTP = ({ navigation }) => {
                 console.log(`Code is ${code}, you are good to go!`);
               }}
             /> */}
-            <OTPTextInput ref={e => (this.otpInput = e)} />
+            <OTPTextInput
+              ref={e => (this.otpInput = e)}
+              tintColor={theme.primary}
+              offTintColor={theme.lightPrimary}
+              focusedBorderColor={theme.primary}
+              autoFocus
+              defaultBorderColor={theme.lightPrimary}
+              containerStyle={{
+                width: '80%',
+                alignSelf: 'center',
+                // borderWidth: 1,
+                // borderColor: theme.primary,
+                // borderRadius: 10,
+                // padding:7
+              }}
+              borderBottomWidth={2}
+              textInputStyle={{
+                color: theme.normalText,
+                fontSize: 15,
+                // height:40, width:40
+              }}
+              handleTextChange={code => setOTP(code)}
+              inputCount={4}
+            />
             <View style={styles.btnContainer}>
               <Button
                 text={t('OTP.authenticate')}

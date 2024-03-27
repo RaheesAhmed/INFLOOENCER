@@ -18,7 +18,7 @@ const ChangePassword = ({ navigation }) => {
         alignItems: 'center',
       }}>
       <Header
-        heading={'Change Password'}
+        heading="Change Password"
         LeftIcon={() => <MaterialIcons name="arrow-back" size={20} color={theme.primary} />}
         onLeftIconPress={() => navigation.goBack()}
         applyBorder={false}
