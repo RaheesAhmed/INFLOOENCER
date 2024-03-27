@@ -23,6 +23,7 @@ import Notification from './src/screens/Notification';
 import Settings from './src/screens/Settings';
 import ProfileSettings from './src/screens/ProfileSettings';
 import ChangePassword from './src/screens/ChangePassword';
+import ProfileView from './src/screens/ProfileView';
 
 //======== NAVIGATORS =========
 const Stack = createNativeStackNavigator();
@@ -39,6 +40,7 @@ const MyStackNavigator = () => {
         headerShown: false,
       }}>
       <Stack.Screen name="Login" component={Login} />
+      <Stack.Screen name="ProfileView" component={ProfileView} />
       <Stack.Screen name="Wallet" component={Wallet} />
       <Stack.Screen name="ChangePassword" component={ChangePassword} />
       <Stack.Screen name="ProfileSettings" component={ProfileSettings} />
@@ -80,7 +82,6 @@ export default function App() {
   return (
     <ThemeProvider>
       <StatusBar style="inverted" />
-
       <Wrapper />
     </ThemeProvider>
   );

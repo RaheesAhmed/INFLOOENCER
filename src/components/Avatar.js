@@ -24,9 +24,11 @@ const Avatar = ({ url, style, onImageLoadEnd, size, onPress, editable = false, c
         source={
           url === 'null' || url === 'undefined' || url === ' ' || url === null || url === undefined
             ? require('../../assets/images/placeholderAvatar.png')
-            : {
-                uri: 'file:///data/user/0/com.inflooncer/cache/rn_image_picker_lib_temp_ac4fd0c4-1ac2-4f85-b3ff-67f14b80f940.jpg',
-              }
+            : typeof url === 'string'
+              ? {
+                  uri: 'file:///data/user/0/com.inflooncer/cache/rn_image_picker_lib_temp_ac4fd0c4-1ac2-4f85-b3ff-67f14b80f940.jpg',
+                }
+              : url
         }
         resizeMode={cover ? 'cover' : 'contain'}
       />
