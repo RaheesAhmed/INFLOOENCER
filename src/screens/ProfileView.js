@@ -18,7 +18,7 @@ const ProfileView = ({ navigation, route }) => {
   const { textStyles } = globalStyles;
   const { t } = useTranslation();
 
-  const [selected, setSelected] = React.useState(t('Wallet.points'));
+  const [selected, setSelected] = React.useState('Posts');
   const [points, setPoints] = React.useState([
     {
       id: 1,
@@ -88,6 +88,7 @@ const ProfileView = ({ navigation, route }) => {
     <Container
       style={{
         paddingHorizontal: 0,
+        paddingBottom: 0,
       }}>
       <RoundedTop
         image="https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671122.jpg"
@@ -133,17 +134,11 @@ const ProfileView = ({ navigation, route }) => {
         </View>
       </View>
       <SwapMenu
-        options={[t('Wallet.points'), t('Wallet.myBalance')]}
+        options={['Posts', 'About Me']}
         style={{ marginTop: 20 }}
         useOptionWidth
-        onChangeSelect={handleSelect}>
-        <View style={{ padding: 10, flex: 1 }}>
-          <HistoryWallet
-            type={selected === t('Wallet.points') ? 'points' : 'balance'}
-            data={selected === t('Wallet.points') ? points : balance}
-          />
-        </View>
-      </SwapMenu>
+        onChangeSelect={handleSelect}></SwapMenu>
+      <View style={{ paddingHorizontal: 10, flex: 1, borderWidth: 1 }}></View>
     </Container>
   );
 };

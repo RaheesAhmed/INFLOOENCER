@@ -15,9 +15,15 @@ const RoundedTop = ({ style, image, shade, children }) => {
       {children}
       {/* //TODO: use Fast Image */}
       {/* <Avatar
-        url="https://www.w3schools.com/w3images/avatar2.png"
+         url={
+          image && typeof image === 'string'
+            ? { uri: image }
+            : image
+              ? image
+              : require('../../assets/images/placeholderAvatar.png')
+        }
         size={100}
-        style={{ position: 'absolute', bottom: -50, left: 20 }}
+         style={styles.image}
       /> */}
       <Image
         source={
