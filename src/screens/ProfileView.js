@@ -12,6 +12,7 @@ import Button from '../components/Button';
 import SwapMenu from '../components/SwapMenu';
 import { useTranslation } from 'react-i18next';
 import HistoryWallet from '../components/HistoryWallet';
+import MyPosts from './MyPosts';
 
 const ProfileView = ({ navigation, route }) => {
   const { theme, globalStyles } = useTheme();
@@ -19,34 +20,19 @@ const ProfileView = ({ navigation, route }) => {
   const { t } = useTranslation();
 
   const [selected, setSelected] = React.useState('Posts');
-  const [points, setPoints] = React.useState([
+  const [posts, setPosts] = React.useState([
     {
       id: 1,
-      refId: '123456',
       name: 'John Doe',
       time: '3hrs ago',
-      amount: 100,
-    },
-    {
-      id: 2,
-      refId: '123457',
-      name: 'Jane Doe',
-      time: '3hrs ago',
-      amount: 200,
-    },
-    {
-      id: 3,
-      refId: '123458',
-      name: 'John Doe',
-      time: '3hrs ago',
-      amount: 300,
-    },
-    {
-      id: 4,
-      refId: '123459',
-      name: 'Jane Doe',
-      time: '3hrs ago',
-      amount: 400,
+      description:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut purus eget sapien.',
+      avatar: 'https://i.pravatar.cc/150?img=49',
+      image: 'https://random.imagecdn.app/500/150',
+      likes: 100,
+      comments: 200,
+      shares: 300,
+      views: 400,
     },
   ]);
   const [balance, setBalance] = React.useState([
@@ -90,10 +76,8 @@ const ProfileView = ({ navigation, route }) => {
         paddingHorizontal: 0,
         paddingBottom: 0,
       }}>
-      <RoundedTop
-        image="https://img.freepik.com/free-psd/3d-illustration-human-avatar-profile_23-2150671122.jpg"
-        shade={theme.primaryWithOpacity}>
-        <View style={{ height: '35%' }}>
+      <RoundedTop image="https://i.pravatar.cc/300" shade={theme.primaryWithOpacity}>
+        <View style={{ height: '18%' }}>
           <Header
             LeftIcon={() => <MaterialIcons name="arrow-back" size={20} color={theme.white} />}
             onLeftIconPress={() => navigation.goBack()}
@@ -108,7 +92,7 @@ const ProfileView = ({ navigation, route }) => {
         <Text style={[textStyles.lightText, { color: theme.lightText }]}>dave walker_762</Text>
         <View style={styles.actionContainer}>
           <View style={{ alignItems: 'center' }}>
-            <Text style={[textStyles.largeHeading]}>56</Text>
+            <Text style={[textStyles.largeHeading, { fontSize: 22 }]}>56</Text>
             <Text style={theme.lightText}>{t('Wallet.redeem')}</Text>
           </View>
           <View
@@ -118,7 +102,7 @@ const ProfileView = ({ navigation, route }) => {
             }}
           />
           <View style={{ alignItems: 'center' }}>
-            <Text style={[textStyles.largeHeading]}>290</Text>
+            <Text style={[textStyles.largeHeading, { fontSize: 22 }]}>290</Text>
             <Text style={theme.lightText}>{t('Wallet.tip')}</Text>
           </View>
           <View
@@ -128,7 +112,7 @@ const ProfileView = ({ navigation, route }) => {
             }}
           />
           <View style={{ alignItems: 'center' }}>
-            <Text style={[textStyles.largeHeading]}>29.3K</Text>
+            <Text style={[textStyles.largeHeading, { fontSize: 22 }]}>29.3K</Text>
             <Text style={theme.lightText}>{t('Wallet.tip')}</Text>
           </View>
         </View>
@@ -137,8 +121,11 @@ const ProfileView = ({ navigation, route }) => {
         options={['Posts', 'About Me']}
         style={{ marginTop: 20 }}
         useOptionWidth
-        onChangeSelect={handleSelect}></SwapMenu>
-      <View style={{ paddingHorizontal: 10, flex: 1, borderWidth: 1 }}></View>
+        onChangeSelect={handleSelect}>
+        <View style={{ paddingHorizontal: 10, paddingTop: 10, flex: 1, borderWidth: 1 }}>
+          {selected === 'Posts' ? <MyPosts data={posts} /> : <Text>About Me</Text>}
+        </View>
+      </SwapMenu>
     </Container>
   );
 };
