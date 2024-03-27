@@ -101,10 +101,10 @@ const ProfileView = ({ navigation, route }) => {
       </RoundedTop>
 
       <View style={styles.selectActionContainer}>
-        <Text style={[textStyles.largeHeading, { fontSize: 23 }]}>{t('Wallet.select')}</Text>
+        <Text style={[textStyles.largeHeading, { fontSize: 23 }]}>John Doe</Text>
         <Text style={[textStyles.lightText, { color: theme.lightText }]}>dave walker_762</Text>
         <View style={styles.actionContainer}>
-          <View style={{ alignItems: 'center' }}>
+          <View style={{ alignItems: 'center', minWidth: 70 }}>
             <Text style={[textStyles.largeHeading, { fontSize: 22 }]}>56</Text>
             <Text style={theme.lightText}>Posts</Text>
           </View>
@@ -114,7 +114,7 @@ const ProfileView = ({ navigation, route }) => {
               borderRightWidth: 1,
             }}
           />
-          <View style={{ alignItems: 'center' }}>
+          <View style={{ alignItems: 'center', minWidth: 70 }}>
             <Text style={[textStyles.largeHeading, { fontSize: 22 }]}>290</Text>
             <Text style={theme.lightText}>Followers</Text>
           </View>
@@ -124,7 +124,7 @@ const ProfileView = ({ navigation, route }) => {
               borderRightWidth: 1,
             }}
           />
-          <View style={{ alignItems: 'center' }}>
+          <View style={{ alignItems: 'center', minWidth: 70 }}>
             <Text style={[textStyles.largeHeading, { fontSize: 22 }]}>29.3K</Text>
             <Text style={theme.lightText}>Total Points Earned</Text>
           </View>
@@ -162,11 +162,11 @@ const styles = StyleSheet.create({
     marginTop: 60,
     alignItems: 'center',
     justifyContent: 'center',
-    gap: 10,
+    gap: 5,
   },
   actionContainer: {
     flexDirection: 'row',
-    gap: 20,
+    gap: 18,
   },
   actionBtn: {
     borderRadius: 100,
