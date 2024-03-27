@@ -50,14 +50,14 @@ const InputField = ({
       mode="outlined"
       outlineColor={colors.primary}
       activeOutlineColor={colors.primary}
-      backgroundStyle={[{ backgroundColor: colors.background }, props.inputStyle]}
+      backgroundStyle={[{ backgroundColor: colors.white }, props.inputStyle]}
       label={placeholder}
-      style={[
-        { flex: 1, marginLeft: PreTextLogo ? 10 : 0, color: 'black' },
-        textStyles.text,
-        { fontWeight: '400' },
-        props.inputStyle,
-      ]}
+      // style={[
+      //   { flex: 1, marginLeft: PreTextLogo ? 10 : 0, color: 'black' },
+      //   textStyles.text,
+      //   { fontWeight: '400' },
+      //   props.inputStyle,
+      // ]}
       left={PreTextLogo && <TextInput.Icon icon={() => <PreTextLogo />} />}
       right={
         postTextLogo && (

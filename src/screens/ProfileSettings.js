@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import React, { useState } from 'react';
 import { MaterialIcons } from '@expo/vector-icons';
 import Container from '../components/Container';
@@ -12,6 +12,13 @@ import Button from '../components/Button';
 const ProfileSettings = ({ navigation }) => {
   const { theme } = useTheme();
   const [url, setUrl] = useState(null);
+  const [data, setData] = useState({
+    fullName: '',
+    email: '',
+    contactNumber: '',
+    age: 0,
+    gender: '',
+  });
 
   console.log('====================================');
   console.log(url);
@@ -57,18 +64,14 @@ const ProfileSettings = ({ navigation }) => {
   };
 
   return (
-    <Container
-      style={{
-        alignItems: 'center',
-        justifyContent: 'space-between',
-      }}>
+    <Container scroll>
       <Header
         heading="Profile Settings"
         LeftIcon={() => <MaterialIcons name="arrow-back" size={20} color={theme.primary} />}
         onLeftIconPress={() => navigation.goBack()}
         applyBorder={false}
       />
-      <View>
+      <View style={{ marginVertical: 20 }}>
         <Avatar
           size={100}
           cover
@@ -77,49 +80,55 @@ const ProfileSettings = ({ navigation }) => {
           onPress={() => selectImage()}
           style={{
             borderRadius: 200,
+            alignSelf: 'center',
           }}
         />
       </View>
 
       {/*  Full Name Email Address Contact Number Age Gender */}
-      <View style={{ width: '100%', justifyContent: 'space-around', flex: 1, marginTop: 40 }}>
+      <View style={{ flex: 1, gap: 20 }}>
         <TextInput
+          value={data.fullName}
+          onChangeText={txt => {
+            setData({ ...data, fullName: txt });
+          }}
           placeholder="Full Name"
-          type="name"
-          style={{
-            marginVertical: 10,
-          }}
         />
 
         <TextInput
+          value={data.email}
+          onChangeText={txt => {
+            setData({ ...data, email: txt });
+          }}
           placeholder="Email Address"
-          type="email"
-          style={{
-            marginVertical: 10,
-          }}
+          type="emailAddress"
         />
 
         <TextInput
+          value={data.contactNumber}
+          onChangeText={txt => {
+            setData({ ...data, contactNumber: txt });
+          }}
           placeholder="Contact Number"
           keyboardType="number-pad"
-          style={{
-            marginVertical: 10,
-          }}
+          type="telephoneNumber"
         />
 
         <TextInput
+          value={data.gender}
+          onChangeText={txt => {
+            setData({ ...data, gender: txt });
+          }}
           placeholder="Age"
           keyboardType="number-pad"
-          style={{
-            marginVertical: 10,
-          }}
         />
 
         <TextInput
-          placeholder="Gender"
-          style={{
-            marginVertical: 10,
+          value={data.age}
+          onChangeText={txt => {
+            setData({ ...data, age: txt });
           }}
+          placeholder="Gender"
         />
       </View>
 
@@ -142,4 +151,3 @@ const ProfileSettings = ({ navigation }) => {
 
 export default ProfileSettings;
 
-const styles = StyleSheet.create({});

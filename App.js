@@ -39,12 +39,10 @@ const MyStackNavigator = () => {
       screenOptions={{
         headerShown: false,
       }}>
-      <Stack.Screen name="Login" component={Login} />
-
       <Stack.Screen name="ProfileSettings" component={ProfileSettings} />
-
+      <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="ProfileView" component={ProfileView} />
-
+      <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Wallet" component={Wallet} />
       <Stack.Screen name="ChangePassword" component={ChangePassword} />
       <Stack.Screen name="Notification" component={Notification} />
@@ -53,7 +51,6 @@ const MyStackNavigator = () => {
       <Stack.Screen name="Contacts" component={Contacts} />
       <Stack.Screen name="SelectInterest" component={SelectInterest} />
       <Stack.Screen name="Inbox" component={Inbox} />
-      <Stack.Screen name="Register" component={Register} />
       <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
     </Stack.Navigator>
   );
