@@ -106,27 +106,27 @@ const ProfileView = ({ navigation, route }) => {
         <View style={styles.actionContainer}>
           <View style={{ alignItems: 'center' }}>
             <Text style={[textStyles.largeHeading, { fontSize: 22 }]}>56</Text>
-            <Text style={theme.lightText}>{t('Wallet.redeem')}</Text>
+            <Text style={theme.lightText}>Posts</Text>
           </View>
           <View
             style={{
-              borderColor: theme.lightText,
+              borderColor: theme.lightGrey,
               borderRightWidth: 1,
             }}
           />
           <View style={{ alignItems: 'center' }}>
             <Text style={[textStyles.largeHeading, { fontSize: 22 }]}>290</Text>
-            <Text style={theme.lightText}>{t('Wallet.tip')}</Text>
+            <Text style={theme.lightText}>Followers</Text>
           </View>
           <View
             style={{
-              borderColor: theme.lightText,
+              borderColor: theme.lightGrey,
               borderRightWidth: 1,
             }}
           />
           <View style={{ alignItems: 'center' }}>
             <Text style={[textStyles.largeHeading, { fontSize: 22 }]}>29.3K</Text>
-            <Text style={theme.lightText}>{t('Wallet.tip')}</Text>
+            <Text style={theme.lightText}>Total Points Earned</Text>
           </View>
         </View>
       </View>
@@ -135,7 +135,14 @@ const ProfileView = ({ navigation, route }) => {
         style={{ marginTop: 20 }}
         useOptionWidth
         onChangeSelect={handleSelect}>
-        <View style={{ paddingHorizontal: 10, paddingTop: 10, flex: 1, borderWidth: 1 }}>
+        <View
+          style={{
+            paddingHorizontal: 10,
+            paddingTop: 10,
+            flex: 1,
+            borderTopWidth: 1,
+            borderColor: theme.lightGrey,
+          }}>
           {selected === 'Posts' ? <MyPosts data={posts} /> : <Text>About Me</Text>}
         </View>
       </SwapMenu>

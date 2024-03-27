@@ -27,7 +27,7 @@ const MyPost = ({ item }) => {
         style={{ width: '100%', height: 200 }}
         resizeMode={FastImage.resizeMode.cover}
       />
-      <View style={[globalStyles.row, { justifyContent: 'center', gap: 5 }]}>
+      <View style={[globalStyles.row, { justifyContent: 'center', gap: 5, marginTop: 6 }]}>
         <SvgImport svg={heart} />
         <Text style={[textStyles.lightText, { fontSize: 14, fontWeight: '400' }]}>
           {item.likes}
