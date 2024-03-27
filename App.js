@@ -38,17 +38,12 @@ const MyStackNavigator = () => {
       screenOptions={{
         headerShown: false,
       }}>
+      <Stack.Screen name="Login" component={Login} />
       <Stack.Screen name="Wallet" component={Wallet} />
-
       <Stack.Screen name="ChangePassword" component={ChangePassword} />
       <Stack.Screen name="ProfileSettings" component={ProfileSettings} />
-
-      <Stack.Screen name="Login" component={Login} />
-
       <Stack.Screen name="Notification" component={Notification} />
-
       <Stack.Screen name="Settings" component={Settings} />
-
       <Stack.Screen name="OTP" component={OTP} />
       <Stack.Screen name="Contacts" component={Contacts} />
       <Stack.Screen name="SelectInterest" component={SelectInterest} />

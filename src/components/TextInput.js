@@ -1,4 +1,5 @@
-import { StyleSheet, TextInput, View, Animated } from 'react-native';
+import { StyleSheet, View, Animated } from 'react-native';
+import { TextInput } from 'react-native-paper';
 import React, { useEffect, useRef } from 'react';
 import { Feather, Ionicons } from '@expo/vector-icons';
 import { useTheme } from '../Theme/ThemeContext';
@@ -33,57 +34,84 @@ const InputField = ({
   };
 
   return (
-    <View
+    // <View
+    //   style={[
+    //     styles.container,
+    //     {
+    //       backgroundColor: colors.background,
+    //       borderWidth: 1,
+    //       borderColor: error ? colors.red : colors.primary,
+    //     },
+    //     props.style,
+    //   ]}>
+    //   {PreTextLogo && <PreTextLogo />}
+    <TextInput
+      editable={!disabled}
+      mode="outlined"
+      outlineColor={colors.primary}
+      activeOutlineColor={colors.primary}
+      backgroundStyle={[{ backgroundColor: colors.background }, props.inputStyle]}
+      label={placeholder}
       style={[
-        styles.container,
-        {
-          backgroundColor: colors.background,
-          borderWidth: 1,
-          borderColor: error ? colors.red : colors.primary,
-        },
-        props.style,
-      ]}>
-      {PreTextLogo && <PreTextLogo />}
-      <TextInput
-        editable={!disabled}
-        style={[
-          { flex: 1, marginLeft: PreTextLogo ? 10 : 0, color: 'black' },
-          textStyles.text,
-          { fontWeight: '400' },
-          props.inputStyle,
-        ]}
-        textContentType={props.type || 'none'}
-        keyboardType={props.keyboardType || 'default'}
-        placeholder={placeholder}
-        onChangeText={onChangeText}
-        secureTextEntry={passwordType && !showPassword}
-        value={value}
-        placeholderTextColor={colors.placeholderColor}
-      />
-      {error && (
-        <Feather
-          name="alert-circle"
-          size={20}
-          color={colors.red}
-          style={{ marginRight: postTextLogo ? 10 : 0 }}
-        />
-      )}
-      {postTextLogo && (
-        <Ionicons
-          onPress={handlePostLogoClick}
-          name={
-            !showPassword && !passwordType
-              ? postTextLogo
-              : showPassword && passwordType
-                ? 'eye-outline'
-                : 'eye-off-outline'
-          }
-          size={20}
-          color={logoColor || colors.largeHeading}
-        />
-      )}
-      {postLogo && postLogo()}
-    </View>
+        { flex: 1, marginLeft: PreTextLogo ? 10 : 0, color: 'black' },
+        textStyles.text,
+        { fontWeight: '400' },
+        props.inputStyle,
+      ]}
+      left={PreTextLogo && <TextInput.Icon icon={() => <PreTextLogo />} />}
+      right={
+        postTextLogo && (
+          <TextInput.Icon
+            icon={() => (
+              <Ionicons
+                name={
+                  !showPassword && !passwordType
+                    ? postTextLogo
+                    : showPassword && passwordType
+                      ? 'eye-outline'
+                      : 'eye-off-outline'
+                }
+                size={20}
+                color={logoColor || colors.largeHeading}
+                onPress={handlePostLogoClick}
+              />
+            )}
+          />
+        )
+      }
+      error={error}
+      textContentType={props.type || 'none'}
+      keyboardType={props.keyboardType || 'default'}
+      // placeholder={placeholder}
+      onChangeText={onChangeText}
+      secureTextEntry={passwordType && !showPassword}
+      value={value}
+      placeholderTextColor={colors.placeholderColor}
+    />
+    //   {error && (
+    //     <Feather
+    //       name="alert-circle"
+    //       size={20}
+    //       color={colors.red}
+    //       style={{ marginRight: postTextLogo ? 10 : 0 }}
+    //     />
+    //   )}
+    //   {postTextLogo && (
+    //     <Ionicons
+    //       onPress={handlePostLogoClick}
+    //       name={
+    //         !showPassword && !passwordType
+    //           ? postTextLogo
+    //           : showPassword && passwordType
+    //             ? 'eye-outline'
+    //             : 'eye-off-outline'
+    //       }
+    //       size={20}
+    //       color={logoColor || colors.largeHeading}
+    //     />
+    //   )}
+    //   {postLogo && postLogo()}
+    // </View>
   );
 };
 
